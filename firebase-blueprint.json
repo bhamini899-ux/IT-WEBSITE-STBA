@@ -1,0 +1,83 @@
+{
+  "entities": {
+    "Student": {
+      "title": "Student",
+      "description": "Official student master record at Seth Tolaram Bafna Academy",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 120 },
+        "className": { "type": "string", "maxLength": 20 },
+        "section": { "type": "string", "maxLength": 10 },
+        "rollNo": { "type": "number" },
+        "admissionNo": { "type": "string", "maxLength": 50 },
+        "guardianName": { "type": "string", "maxLength": 120 },
+        "guardianPhone": { "type": "string", "maxLength": 25 },
+        "status": { "type": "string", "maxLength": 30 },
+        "todayStatus": { "type": "string", "maxLength": 20 },
+        "attendancePercentage": { "type": "number" }
+      },
+      "required": ["id", "name", "className"]
+    },
+    "AttendanceRecord": {
+      "title": "AttendanceRecord",
+      "description": "Classroom daily attendance entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "studentId": { "type": "string", "maxLength": 128 },
+        "studentName": { "type": "string", "maxLength": 120 },
+        "className": { "type": "string", "maxLength": 20 },
+        "section": { "type": "string", "maxLength": 10 },
+        "date": { "type": "string", "maxLength": 30 },
+        "status": { "type": "string", "maxLength": 20 }
+      },
+      "required": ["id", "studentId", "date", "status"]
+    },
+    "Homework": {
+      "title": "Homework",
+      "description": "Teacher homework assignment",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 200 },
+        "subject": { "type": "string", "maxLength": 80 },
+        "className": { "type": "string", "maxLength": 20 },
+        "dueDate": { "type": "string", "maxLength": 40 },
+        "description": { "type": "string", "maxLength": 2000 }
+      },
+      "required": ["id", "title", "subject", "className"]
+    },
+    "Circular": {
+      "title": "Circular",
+      "description": "Administrative circular or notice",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 60 },
+        "date": { "type": "string", "maxLength": 40 },
+        "content": { "type": "string", "maxLength": 5000 }
+      },
+      "required": ["id", "title", "content"]
+    }
+  },
+  "firestore": {
+    "/students/{studentId}": {
+      "schema": "Student",
+      "description": "Official student master collection"
+    },
+    "/attendance/{attendanceId}": {
+      "schema": "AttendanceRecord",
+      "description": "Student daily attendance collection"
+    },
+    "/homework/{homeworkId}": {
+      "schema": "Homework",
+      "description": "Homework assignments collection"
+    },
+    "/circulars/{circularId}": {
+      "schema": "Circular",
+      "description": "School notices and circulars collection"
+    }
+  }
+}

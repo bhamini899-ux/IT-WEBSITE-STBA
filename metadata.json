@@ -1,0 +1,6 @@
+{
+  "name": "SMART SCHOOL 360°",
+  "description": "Seth Tolaram Bafna Academy — Intelligent Digital School Management Platform unifying Student, Faculty & Parent 360°, Academics & Examination 360°, Smart Attendance, Timetable, Library, Transport Fleet, and Green Energy systems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
